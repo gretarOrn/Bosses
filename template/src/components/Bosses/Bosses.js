@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Link from 'react-router-dom';
 
 class Bosses extends React.Component {
 
@@ -10,7 +11,11 @@ class Bosses extends React.Component {
 
     render(){
         var items = this.props.bosses.map((item, key) => 
-            <div key={item.id}>{item.name}</div>
+            <div key={item.id}>
+                <h3>{item.name}</h3>
+                <img src={item.img} alt={item.name} className="thumb-nail"/>
+                <Link to={ '/bosses/' + item.id }>linkur</Link>
+            </div>
         );
         return (
             <>
