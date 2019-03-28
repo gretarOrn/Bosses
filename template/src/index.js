@@ -12,6 +12,7 @@ import reducers from './reducers';
 import Navbar from './components/Navbar/Navbar';
 import FrontPage from './components/FrontPage/FrontPage';
 import Bosses from './components/Bosses/Bosses';
+import Boss from './components/Boss/Boss';
 
 class Application extends React.Component {
     componentDidMount() {
@@ -24,6 +25,7 @@ class Application extends React.Component {
             <Switch>
                 <Route exact path="/" component={ FrontPage }/>
                 <Route exact path="/bosses" component={ Bosses }/>
+                <Route path='/bosses/:id' component={ Boss } />
             </Switch>
         </>
       );
