@@ -47,12 +47,11 @@ class Bosses extends React.Component {
                 description: this.state.bossInfo.bossDescription, 
                 img: this.state.bossInfo.bossImage
             })
-            this.props.history.push('/bosses');
         }
         else {
-            /*alert(this.state.errorInfo.nameError);
+            alert(this.state.errorInfo.nameError);
             alert(this.state.errorInfo.descriptionError);
-            alert(this.state.errorInfo.imageError);*/
+            alert(this.state.errorInfo.imageError);
         }
     }
 
@@ -67,11 +66,11 @@ class Bosses extends React.Component {
         return (
             <>
                 <label htmlFor="bossCreation">Add a boss to the collection!</label>
-                <form name="bossCreation">
+                <form name="bossCreation" onSubmit={ e => this.addBoss(e) }>
                     <input type="text" name="bossName" placeholder="Enter new boss name.." value={this.state.bossInfo.bossName} onChange={e => this.onInput(e)}/>
                     <input type="text" name="bossDescription" placeholder="Enter new boss description.."value={this.state.bossInfo.bossDescription} onChange={e => this.onInput(e)}/>
                     <input type="text" name="bossImage" placeholder="Enter new boss image url.."value={this.state.bossInfo.bossImage} onChange={e => this.onInput(e)}/>
-                    <button type="submit" onSubmit={ e => this.addBoss(e) }> Submit </button>
+                    <button type="submit" > Submit </button>
                 </form>
                 <p>hérna koma bosses</p>
                 {items}

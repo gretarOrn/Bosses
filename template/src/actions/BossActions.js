@@ -20,18 +20,11 @@ const getBossesSuccess = bosses => {
 };
 
 export const postBoss = boss => {
+    console.log(boss.name);
     return dispatch => {
         return BossService.postBoss(boss).then(resp => {
             dispatch(postBossSuccess(resp.id, boss));
             //return resp.id;
-        });
-    };
-};
-
-export const getBossById = id => {
-    return dispatch => {
-        return BossService.getBossById(id).then(d => {
-            dispatch(getBossByIdSuccess(d));
         });
     };
 };
@@ -43,6 +36,14 @@ const postBossSuccess = (id, boss) => {
             id,
             boss
         }
+    };
+};
+
+export const getBossById = id => {
+    return dispatch => {
+        return BossService.getBossById(id).then(d => {
+            dispatch(getBossByIdSuccess(d));
+        });
     };
 };
 
