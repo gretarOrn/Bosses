@@ -12,11 +12,6 @@ class Bosses extends React.Component {
                 bossName: "",
                 bossDescription: "",
                 bossImage: ""
-            },
-            errorInfo: {
-                nameError: "",
-                descriptionError: "",
-                imageError: ""
             }
         }
     }
@@ -28,31 +23,21 @@ class Bosses extends React.Component {
             }
         });
     }
-    validate(){
-        const errorInfo = {};
-        if(this.state.bossInfo.bossName === "") {errorInfo.nameError = "The name field is required!";}
-        if(this.state.bossInfo.bossDescription === "") {errorInfo.descriptionError = "The description field is required!";}
-        if(this.state.bossInfo.bossImage === "") {errorInfo.imageError = "The image field is required!";}
-        if(Object.keys(errorInfo).length > 0){
-            this.setState({...this.state.errorInfo, errorInfo});
-            return false;
-        }
-        return true;
-    }
+
     addBoss(e){
         e.preventDefault();
-        if(this.validate()){
+        if( this.state.bossInfo.bossName !== "" &&
+            this.state.bossInfo.bossDescription !== "" &&
+            this.state.bossInfo.bossImage !== ""){
+
             this.props.postBoss({ 
                 name: this.state.bossInfo.bossName, 
                 description: this.state.bossInfo.bossDescription, 
                 img: this.state.bossInfo.bossImage
             })
-            //this.props.history.push('/bosses');
         }
         else {
-            alert(this.state.errorInfo.nameError);
-            alert(this.state.errorInfo.descriptionError);
-            alert(this.state.errorInfo.imageError);
+            alert('All fields are required!');
         }
     }
 
@@ -67,13 +52,13 @@ class Bosses extends React.Component {
         return (
             <>
                 <label htmlFor="bossCreation">Add a boss to the collection!</label>
-                <form name="bossCreation">
+                <form name="bossCreation" onSubmit={ e => this.addBoss(e) }>
                     <input type="text" name="bossName" placeholder="Enter new boss name.." value={this.state.bossInfo.bossName} onChange={e => this.onInput(e)}/>
                     <input type="text" name="bossDescription" placeholder="Enter new boss description.."value={this.state.bossInfo.bossDescription} onChange={e => this.onInput(e)}/>
                     <input type="text" name="bossImage" placeholder="Enter new boss image url.."value={this.state.bossInfo.bossImage} onChange={e => this.onInput(e)}/>
-                    <button type="submit" onSubmit={ e => this.addBoss(e) }> Submit </button>
+                    <button type="submit" > Submit </button>
                 </form>
-                <p>hérna koma bosses</p>
+                <p>All Megaman bosses</p>
                 {items}
                
             </>
