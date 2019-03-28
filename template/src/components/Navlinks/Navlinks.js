@@ -10,3 +10,4 @@ const NavLinks = () => {
 };
 
 export default NavLinks;
+//<li><NavLink to="/bosses">Bosses</NavLink></li>
