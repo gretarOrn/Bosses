@@ -29,12 +29,12 @@ class Bosses extends React.Component {
         });
     }
     validate(){
-        const setErrors = {};
-        if(this.state.bossInfo.bossName === "") {setErrors.nameError = "The name field is required!"};
-        if(this.state.bossInfo.bossDescription === "") {setErrors.descriptionError = "The description field is required!"};
-        if(this.state.bossInfo.bossImage === "") {setErrors.imageError = "The image field is required!"};
-        if(Object.keys(setErrors).length > 0){
-            this.setState({...this.state.errorInfo, setErrors});
+        const errorInfo = {};
+        if(this.state.bossInfo.bossName === "") {errorInfo.nameError = "The name field is required!";}
+        if(this.state.bossInfo.bossDescription === "") {errorInfo.descriptionError = "The description field is required!";}
+        if(this.state.bossInfo.bossImage === "") {errorInfo.imageError = "The image field is required!";}
+        if(Object.keys(errorInfo).length > 0){
+            this.setState({...this.state.errorInfo, errorInfo});
             return false;
         }
         return true;
@@ -47,12 +47,12 @@ class Bosses extends React.Component {
                 description: this.state.bossInfo.bossDescription, 
                 img: this.state.bossInfo.bossImage
             })
-            this.props.history.push('/bosses');
+            //this.props.history.push('/bosses');
         }
         else {
-            /*alert(this.state.errorInfo.nameError);
+            alert(this.state.errorInfo.nameError);
             alert(this.state.errorInfo.descriptionError);
-            alert(this.state.errorInfo.imageError);*/
+            alert(this.state.errorInfo.imageError);
         }
     }
 
