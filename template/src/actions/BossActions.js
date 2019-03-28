@@ -24,7 +24,6 @@ export const postBoss = boss => {
     return dispatch => {
         return BossService.postBoss(boss).then(resp => {
             dispatch(postBossSuccess(resp.id, boss));
-            //return resp.id;
         });
     };
 };
