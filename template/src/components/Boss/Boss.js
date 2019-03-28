@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class Boss extends React.Component {
-    
+    componentDidMount(){
+        
+    }
     constructor(props) {
         super(props);
        }

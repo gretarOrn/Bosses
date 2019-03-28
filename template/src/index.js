@@ -22,11 +22,13 @@ class Application extends React.Component {
       return (
         <>
             <Navbar/>
+            <div className="container">
             <Switch>
                 <Route exact path="/" component={ FrontPage }/>
                 <Route exact path="/bosses" component={ Bosses }/>
                 <Route path='/bosses/:id' component={ Boss } />
             </Switch>
+            </div>
         </>
       );
     }
