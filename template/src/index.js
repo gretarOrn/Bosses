@@ -25,7 +25,7 @@ class Application extends React.Component {
             <Switch>
                 <Route exact path="/" component={ FrontPage }/>
                 <Route exact path="/bosses" component={ Bosses }/>
-                <Route path='/bosses/:bossId' component={ Boss } />
+                <Route path='/bosses/:id' component={ Boss } />
             </Switch>
         </>
       );
